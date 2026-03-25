@@ -23,18 +23,22 @@
   let animFrame;
 
   // Ball physics
-  const BALL_RADIUS = 12;
+  const BALL_RADIUS_BIG = 22;  // before first kick — big and inviting
+  const BALL_RADIUS_SMALL = 12; // after first kick — less obtrusive
+  let ballRadius = BALL_RADIUS_BIG;
+  let ballRadiusTarget = BALL_RADIUS_BIG;
   const BALL_FRICTION = 0.985;
   const BALL_BOUNCE = 0.7;
-  const KICK_RADIUS = 30; // how close player needs to be to kick
+  const KICK_RADIUS = 35; // how close player needs to be to kick
   const KICK_FORCE = 1.8;
   let ballX, ballY, ballVX = 0, ballVY = 0, ballSpin = 0;
   let ballInitialised = false;
   let ballKicked = false; // true after first kick — hides "kick me" label
 
   function initBall() {
-    ballX = w * (0.3 + Math.random() * 0.4);
-    ballY = h * (0.4 + Math.random() * 0.3);
+    // Start bottom-right corner, well away from centred hero content
+    ballX = w * 0.85;
+    ballY = h * 0.80;
     ballVX = 0; ballVY = 0; ballSpin = 0;
     ballInitialised = true;
   }
@@ -54,7 +58,10 @@
 
       // Kick strength based on player speed
       const kickStrength = Math.max(speed * KICK_FORCE, 3);
-      ballKicked = true;
+      if (!ballKicked) {
+        ballKicked = true;
+        ballRadiusTarget = BALL_RADIUS_SMALL;
+      }
       ballVX += nx * kickStrength;
       ballVY += ny * kickStrength;
       ballSpin += (nx > 0 ? 1 : -1) * kickStrength * 0.3;
@@ -74,7 +81,7 @@
     ballSpin *= 0.98;
 
     // Bounce off walls (with padding)
-    const pad = BALL_RADIUS + 4;
+    const pad = ballRadius + 4;
     if (ballX < pad) { ballX = pad; ballVX = Math.abs(ballVX) * BALL_BOUNCE; ballSpin *= -0.5; }
     if (ballX > w - pad) { ballX = w - pad; ballVX = -Math.abs(ballVX) * BALL_BOUNCE; ballSpin *= -0.5; }
     if (ballY < pad) { ballY = pad; ballVY = Math.abs(ballVY) * BALL_BOUNCE; }
@@ -83,47 +90,86 @@
     // Stop tiny velocities
     if (Math.abs(ballVX) < 0.01) ballVX = 0;
     if (Math.abs(ballVY) < 0.01) ballVY = 0;
+
+    // Smooth radius transition
+    ballRadius += (ballRadiusTarget - ballRadius) * 0.08;
   }
 
   function drawBall() {
     if (!ballInitialised) return;
 
+    const R = ballRadius;
+
+    // Shadow (doesn't rotate)
+    ctx.save();
+    ctx.translate(ballX + 3, ballY + R + 2);
+    ctx.beginPath();
+    ctx.ellipse(0, 0, R * 0.75, 3, 0, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
+    ctx.fill();
+    ctx.restore();
+
+    // Ball (rotates with spin)
     ctx.save();
     ctx.translate(ballX, ballY);
     ctx.rotate(ballSpin);
 
-    // Ball shadow
+    // White base
     ctx.beginPath();
-    ctx.ellipse(2, BALL_RADIUS * 0.6, BALL_RADIUS * 0.8, 3, 0, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+    ctx.arc(0, 0, R, 0, Math.PI * 2);
+    const grad = ctx.createRadialGradient(-R * 0.3, -R * 0.3, R * 0.1, 0, 0, R);
+    grad.addColorStop(0, '#ffffff');
+    grad.addColorStop(0.7, '#e8e8e8');
+    grad.addColorStop(1, '#cccccc');
+    ctx.fillStyle = grad;
     ctx.fill();
-
-    // Main ball
-    ctx.beginPath();
-    ctx.arc(0, 0, BALL_RADIUS, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(200, 200, 200, 0.6)';
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(100, 100, 100, 0.5)';
+    ctx.lineWidth = 0.8;
     ctx.stroke();
 
-    // Pentagon pattern (football/soccer ball look)
-    ctx.fillStyle = 'rgba(40, 40, 40, 0.7)';
-    const pentR = BALL_RADIUS * 0.4;
-    ctx.beginPath();
+    // Classic football pattern — centre pentagon + 5 surrounding pentagons
+    ctx.fillStyle = 'rgba(30, 30, 30, 0.85)';
+    ctx.strokeStyle = 'rgba(80, 80, 80, 0.4)';
+    ctx.lineWidth = 0.5;
+
+    // Centre pentagon
+    const cr = R * 0.35;
+    drawPentagon(0, 0, cr);
+
+    // Lines from centre pentagon vertices to outer hexagon edges
+    ctx.strokeStyle = 'rgba(80, 80, 80, 0.35)';
+    ctx.lineWidth = 0.7;
     for (let i = 0; i < 5; i++) {
       const a = (i * Math.PI * 2) / 5 - Math.PI / 2;
-      const px = Math.cos(a) * pentR;
-      const py = Math.sin(a) * pentR;
-      i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+      const vx = Math.cos(a) * cr;
+      const vy = Math.sin(a) * cr;
+      const ox = Math.cos(a) * R * 0.92;
+      const oy = Math.sin(a) * R * 0.92;
+      ctx.beginPath();
+      ctx.moveTo(vx, vy);
+      ctx.lineTo(ox, oy);
+      ctx.stroke();
     }
-    ctx.closePath();
-    ctx.fill();
 
-    // Highlight
+    // Outer pentagons (partially visible, clipped by ball edge)
+    ctx.save();
     ctx.beginPath();
-    ctx.arc(-BALL_RADIUS * 0.3, -BALL_RADIUS * 0.3, BALL_RADIUS * 0.25, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+    ctx.arc(0, 0, R - 0.5, 0, Math.PI * 2);
+    ctx.clip();
+    for (let i = 0; i < 5; i++) {
+      const a = (i * Math.PI * 2) / 5 - Math.PI / 2;
+      const mid = a + Math.PI / 5;
+      const ox = Math.cos(mid) * R * 0.82;
+      const oy = Math.sin(mid) * R * 0.82;
+      ctx.fillStyle = 'rgba(30, 30, 30, 0.75)';
+      drawPentagon(ox, oy, cr * 0.7);
+    }
+    ctx.restore();
+
+    // Specular highlight
+    ctx.beginPath();
+    ctx.arc(-R * 0.3, -R * 0.35, R * 0.22, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
     ctx.fill();
 
     ctx.restore();
@@ -133,32 +179,49 @@
       ctx.save();
       const bob = Math.sin(Date.now() / 400) * 3;
       const labelX = ballX;
-      const labelY = ballY - BALL_RADIUS - 18 + bob;
+      const labelY = ballY - R - 20 + bob;
 
       // Arrow pointing down to ball
       ctx.beginPath();
-      ctx.moveTo(labelX, ballY - BALL_RADIUS - 4);
-      ctx.lineTo(labelX - 4, ballY - BALL_RADIUS - 10);
-      ctx.lineTo(labelX + 4, ballY - BALL_RADIUS - 10);
+      ctx.moveTo(labelX, ballY - R - 5);
+      ctx.lineTo(labelX - 5, ballY - R - 12);
+      ctx.lineTo(labelX + 5, ballY - R - 12);
       ctx.closePath();
-      ctx.fillStyle = 'rgba(255, 221, 0, 0.8)';
+      ctx.fillStyle = 'rgba(255, 221, 0, 0.85)';
       ctx.fill();
 
       // Label background
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.75)';
       ctx.beginPath();
-      ctx.roundRect(labelX - 28, labelY - 10, 56, 18, 4);
+      ctx.roundRect(labelX - 30, labelY - 11, 60, 20, 5);
       ctx.fill();
+      ctx.strokeStyle = 'rgba(255, 221, 0, 0.3)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
 
       // Label text
-      ctx.fillStyle = 'rgba(255, 221, 0, 0.9)';
-      ctx.font = '700 10px Roboto, sans-serif';
+      ctx.fillStyle = 'rgba(255, 221, 0, 0.95)';
+      ctx.font = '700 11px Roboto, sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText('KICK ME', labelX, labelY);
 
       ctx.restore();
     }
+  }
+
+  // Helper: draw a filled pentagon
+  function drawPentagon(cx, cy, r) {
+    ctx.beginPath();
+    for (let i = 0; i < 5; i++) {
+      const a = (i * Math.PI * 2) / 5 - Math.PI / 2;
+      const px = cx + Math.cos(a) * r;
+      const py = cy + Math.sin(a) * r;
+      i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+    }
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
   }
 
   function resize() {
@@ -178,8 +241,8 @@
     resize();
     // Re-clamp ball to new bounds
     if (ballInitialised) {
-      ballX = Math.min(Math.max(ballX, BALL_RADIUS + 4), w - BALL_RADIUS - 4);
-      ballY = Math.min(Math.max(ballY, BALL_RADIUS + 4), h - BALL_RADIUS - 4);
+      ballX = Math.min(Math.max(ballX, ballRadius + 4), w - ballRadius - 4);
+      ballY = Math.min(Math.max(ballY, ballRadius + 4), h - ballRadius - 4);
     }
   });
 
