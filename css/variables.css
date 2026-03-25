@@ -1,12 +1,16 @@
-/* SPT Brand Tokens */
+/* SPT Brand Tokens — Dark Tech Aesthetic */
 :root {
   /* Primary */
   --spt-yellow: #FFDD00;
   --spt-yellow-hover: #E6C700;
   --spt-yellow-light: #FFEE80;
+  --spt-yellow-glow: rgba(255, 221, 0, 0.15);
   --spt-charcoal: #2C292A;
-  --spt-near-black: #1B1B1B;
-  --spt-dark-grey: #2F2F30;
+  --spt-near-black: #0D0D0D;
+  --spt-dark-grey: #161616;
+  --spt-dark-surface: #1A1A1A;
+  --spt-dark-card: #1E1E1E;
+  --spt-dark-border: rgba(255, 255, 255, 0.08);
 
   /* Neutrals */
   --white: #FFFFFF;
@@ -21,12 +25,18 @@
   --error: #EF4444;
   --info: #3B82F6;
 
+  /* Gradients */
+  --gradient-dark: linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 100%);
+  --gradient-yellow: linear-gradient(135deg, #FFDD00 0%, #FFA500 100%);
+  --gradient-subtle: linear-gradient(180deg, rgba(255,221,0,0.05) 0%, transparent 50%);
+  --gradient-radial: radial-gradient(ellipse at 50% 0%, rgba(255,221,0,0.08) 0%, transparent 50%);
+
   /* Typography */
-  --font-heading: 'Circular Std', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'SF Mono', 'Fira Code', monospace;
 
-  /* Font sizes - mobile first */
+  /* Font sizes */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -36,12 +46,14 @@
   --text-3xl: 1.875rem;
   --text-4xl: 2.25rem;
   --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
 
   /* Font weights */
   --weight-normal: 400;
   --weight-medium: 500;
   --weight-semibold: 600;
   --weight-bold: 700;
+  --weight-black: 900;
 
   /* Spacing */
   --space-1: 0.25rem;
@@ -68,18 +80,22 @@
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
+  --radius-2xl: 24px;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  /* Shadows — tech glow style */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 40px rgba(255, 221, 0, 0.1);
+  --shadow-glow-strong: 0 0 60px rgba(255, 221, 0, 0.2);
 
   /* Transitions */
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 350ms ease;
+  --transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
 
   /* Z-index */
   --z-dropdown: 100;

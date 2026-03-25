@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — SPT GPS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/variables.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/components.css"><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/pages.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
+</head>
+<body>
+  <div class="announcement-bar"><div class="container">🏆 Free shipping on orders over $500 AUD</div></div>
+  <header class="header"><div class="header__inner"><a href="/" class="header__logo">SPT</a><nav class="header__nav"><div class="header__dropdown"><a href="/collections/all" class="header__nav-link">Products ▾</a><div class="header__dropdown-menu"><a href="/products/spt-nxt-pack" class="header__dropdown-item">SPT-NXT Pack <span class="header__dropdown-item-price">$349.99</span></a><a href="/products/charging-dock" class="header__dropdown-item">Charging Dock <span class="header__dropdown-item-price">$799.99</span></a><a href="/products/heart-rate-vest" class="header__dropdown-item">Heart Rate Vest <span class="header__dropdown-item-price">$199.99</span></a></div></div><a href="/pages/teams" class="header__nav-link">Teams</a><a href="/pages/gametraka" class="header__nav-link">GameTraka</a><a href="/blog/" class="header__nav-link">Playbook</a><a href="/pages/k-sport" class="header__nav-link">K-Sport</a></nav><div class="header__actions"><button class="header__cart-btn" onclick="toggleCart()" aria-label="Cart"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg><span class="header__cart-count" id="cartCount" style="display:none;">0</span></button><button class="header__menu-btn" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button></div></div></header>
+  <div class="mobile-menu" id="mobileMenu"><a href="/collections/all" class="mobile-menu__link">Products</a><a href="/pages/teams" class="mobile-menu__link">Teams</a><a href="/blog/" class="mobile-menu__link">Playbook</a><div class="mobile-menu__cta"><a href="/collections/all" class="btn btn--primary btn--full btn--lg">Shop Now</a></div></div>
+
+  <section class="collection-header"><div class="container"><h1>Contact Us</h1></div></section>
+  <hr class="divider">
+
+  
+<section class="section"><div class="container container--narrow">
+  <div style="text-align:center;margin-bottom:var(--space-10);">
+    <p style="color:var(--text-light);font-size:var(--text-lg);">Questions about SPT? Need help choosing the right pack? Get in touch.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-6);margin-bottom:var(--space-12);">
+    <div style="text-align:center;background:var(--light-grey);border-radius:var(--radius-lg);padding:var(--space-6);"><div style="font-size:28px;margin-bottom:var(--space-3);">📧</div><h4 style="margin-bottom:var(--space-2);">Email</h4><p style="font-size:var(--text-sm);color:var(--muted);">info@sptgps.com</p></div>
+    <div style="text-align:center;background:var(--light-grey);border-radius:var(--radius-lg);padding:var(--space-6);"><div style="font-size:28px;margin-bottom:var(--space-3);">📞</div><h4 style="margin-bottom:var(--space-2);">Phone</h4><p style="font-size:var(--text-sm);color:var(--muted);">+61 3 9999 0000</p></div>
+    <div style="text-align:center;background:var(--light-grey);border-radius:var(--radius-lg);padding:var(--space-6);"><div style="font-size:28px;margin-bottom:var(--space-3);">💬</div><h4 style="margin-bottom:var(--space-2);">Support</h4><p style="font-size:var(--text-sm);color:var(--muted);">Visit our help centre</p></div>
+  </div>
+  <form onsubmit="event.preventDefault();alert('Thanks! We will be in touch within 24 hours.');" style="max-width:500px;margin:0 auto;">
+    <div class="form-group"><label class="form-label">Name</label><input type="text" class="form-input" placeholder="Your name" required></div>
+    <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" placeholder="your@email.com" required></div>
+    <div class="form-group"><label class="form-label">Subject</label><select class="form-select"><option>General Enquiry</option><option>Team Pricing</option><option>Technical Support</option><option>Returns & Warranty</option><option>Partnership</option></select></div>
+    <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="How can we help?" required></textarea></div>
+    <button type="submit" class="btn btn--primary btn--full btn--lg">Send Message</button>
+  </form>
+</div></section>
+
+  <footer class="footer"><div class="container"><div class="footer__grid"><div class="footer__brand"><span class="footer__logo">SPT</span><p class="footer__tagline">The simplest in-game GPS solution.</p></div><div><h4 class="footer__heading">Products</h4><a href="/products/spt-nxt-pack" class="footer__link">SPT-NXT Pack</a><a href="/products/charging-dock" class="footer__link">Charging Dock</a></div><div><h4 class="footer__heading">Sports</h4><a href="/pages/australian-football" class="footer__link">Australian Football</a><a href="/pages/soccer" class="footer__link">Soccer</a><a href="/pages/rugby" class="footer__link">Rugby</a></div><div><h4 class="footer__heading">Company</h4><a href="/pages/about" class="footer__link">About SPT</a><a href="/pages/teams" class="footer__link">Team Pricing</a><a href="/pages/support" class="footer__link">Support</a></div></div><div class="footer__bottom"><p class="footer__copyright">© 2026 SPT Pty Ltd.</p></div></div></footer>
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cartDrawer"><div class="cart-drawer__header"><h3 class="cart-drawer__title">Your Cart</h3><button class="cart-drawer__close" onclick="toggleCart()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg></button></div><div class="cart-drawer__items" id="cartItems"><div style="text-align:center;padding:var(--space-16) 0;color:var(--muted);">Your cart is empty</div></div><div class="cart-drawer__footer" id="cartFooter" style="display:none;"><div class="cart-drawer__shipping-bar"><div class="cart-drawer__shipping-progress" style="width:0%;"></div></div><p class="cart-drawer__shipping-text"></p><div class="cart-drawer__total"><span>Total</span><span id="cartTotal">$0.00</span></div><a href="#" class="btn btn--primary btn--full btn--lg">Checkout</a></div></div>
+  <script src="/js/navigation.js"></script>
+  <script src="/js/cart-drawer.js"></script>
+  <script src="/js/faq.js"></script>
+</body>
+</html>
