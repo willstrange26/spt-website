@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>An Athlete's Introduction to Rating of Perceived Exertion (RPE) — SPT Playbook</title>
+  <meta name="description" content="Learn how to use Rate of Perceived Exertion (RPE) to quantify training load. Combine RPE with GPS data for complete performance monitoring. By Jon Parkin.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/variables.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/components.css"><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/pages.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"An Athlete's Introduction to Rating of Perceived Exertion (RPE)","author":{"@type":"Person","name":"Jon Parkin"},"datePublished":"2019-10-16","publisher":{"@type":"Organization","name":"SPT GPS"},"description":"Learn how to use RPE to quantify training load and combine with GPS data."}
+  </script>
+</head>
+<body>
+  <div class="announcement-bar"><div class="container">🏆 Free shipping on orders over $500 AUD — <strong>Team packs from $280/unit</strong></div></div>
+  <header class="header"><div class="header__inner"><a href="/" class="header__logo"><img src="https://sportsperformancetracking.com/cdn/shop/files/SPT_LOGO_2018_RTM_190x.png" alt="SPT GPS" style="height:28px;width:auto;"></a><nav class="header__nav"><div class="header__dropdown"><a href="/collections/all" class="header__nav-link">Products ▾</a><div class="header__dropdown-menu"><a href="/products/spt-nxt-pack" class="header__dropdown-item">SPT-NXT Pack <span class="header__dropdown-item-price">$349.99</span></a><a href="/products/charging-dock" class="header__dropdown-item">Charging Dock <span class="header__dropdown-item-price">$799.99</span></a></div></div><a href="/pages/teams" class="header__nav-link">Teams</a><a href="/blog/" class="header__nav-link active">Playbook</a></nav><div class="header__actions"><button class="header__cart-btn" onclick="toggleCart()" aria-label="Cart"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg><span class="header__cart-count" id="cartCount" style="display:none;">0</span></button><button class="header__menu-btn" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button></div></div></header>
+  <div class="mobile-menu" id="mobileMenu"><a href="/collections/all" class="mobile-menu__link">Products</a><a href="/pages/teams" class="mobile-menu__link">Teams</a><a href="/blog/" class="mobile-menu__link">Playbook</a><div class="mobile-menu__cta"><a href="/collections/all" class="btn btn--primary btn--full btn--lg">Shop Now</a></div></div>
+
+  <div style="background:var(--light-grey);padding:var(--space-3) 0;"><div class="container"><nav style="font-size:var(--text-sm);color:var(--muted);"><a href="/" style="color:var(--muted);">Home</a> / <a href="/blog/" style="color:var(--muted);">Playbook</a> / <span style="color:var(--text);">RPE Guide</span></nav></div></div>
+
+  <article class="section">
+    <div class="container container--narrow">
+      <span class="blog-card__tag" style="display:inline-block;margin-bottom:var(--space-3);">Sports Science</span>
+      <h1 style="margin-bottom:var(--space-3);">An Athlete's Introduction to Rating of Perceived Exertion (RPE)</h1>
+      <p style="color:var(--muted);font-size:var(--text-sm);margin-bottom:var(--space-4);">By Jon Parkin · October 16, 2019 · 5 min read</p>
+      <p style="font-size:var(--text-xs);color:var(--muted);background:var(--light-grey);padding:var(--space-2) var(--space-3);border-radius:var(--radius-sm);display:inline-block;margin-bottom:var(--space-8);">This article drives 5,070 sessions per quarter — 15% of all site traffic</p>
+
+      <img src="https://sportsperformancetracking.com/cdn/shop/articles/IMG_1107_2048x2048.jpeg" alt="Athletes training with GPS tracking" style="width:100%;border-radius:var(--radius-xl);margin-bottom:var(--space-8);">
+
+      <p style="font-size:var(--text-lg);color:var(--text-light);line-height:1.8;margin-bottom:var(--space-6);">If you've heard the term RPE thrown around at training and weren't sure what it meant — this is for you. Rate of Perceived Exertion (RPE) is a useful way to quantify your training load and combine with GPS loading.</p>
+
+      <h2 style="margin-top:var(--space-10);margin-bottom:var(--space-4);">What is RPE?</h2>
+      <p>RPE is an excellent tool for gauging both your exercise intensity and how your fitness level progresses over time. It's a single number (out of 10) to rate any given training session or competitive match.</p>
+      <p>Your RPE score can then be multiplied by the duration (in minutes) of any given performance, which will provide you with an arbitrary score of load. This is one of the simplest yet most powerful tools in sports science.</p>
+
+      <h2 style="margin-top:var(--space-10);margin-bottom:var(--space-4);">The RPE Scale</h2>
+      <img src="https://cdn.shopify.com/s/files/1/0044/9983/2918/files/RPE-scale_large_80138a2f-455f-414c-bc9a-3c6d83d4a78c_grande.png" alt="RPE Scale 1-10" style="width:100%;max-width:500px;border-radius:var(--radius-lg);margin:var(--space-4) 0 var(--space-6);">
+      <p>The classic model uses a 1-10 scale, though methods such as the modified Borg Scale (6-20) have also been employed in team sport environments. The key is consistency — pick a scale and stick with it.</p>
+      <p><strong>Best practice:</strong> Score immediately post-session. Consider the entire session, not just the final drill. In team environments, be careful of athletes hearing how others rate the session — this can bias scores. Providing visual scoring scales helps ensure accuracy.</p>
+
+      <!-- IN-CONTENT PRODUCT CARD #1 — This is the key monetisation feature -->
+      <div class="article-product-card">
+        <img src="https://sportsperformancetracking.com/cdn/shop/files/SPTPack_1080x.png" alt="SPT-NXT Pack" class="article-product-card__image">
+        <div class="article-product-card__content">
+          <div class="article-product-card__label">Combine RPE with GPS Data</div>
+          <div class="article-product-card__title">SPT-NXT Pack — GPS device + vest + GameTraka</div>
+          <div style="display:flex;align-items:center;gap:var(--space-3);margin-top:var(--space-2);">
+            <span class="article-product-card__price">$349.99</span>
+            <a href="/products/spt-nxt-pack" class="btn btn--sm btn--primary">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <h2 style="margin-top:var(--space-10);margin-bottom:var(--space-4);">RPE & Performance</h2>
+      <p>RPE becomes an easily administered tool that can guide your training practices. Combined with external measures like GPS devices, it facilitates balanced training between high physical demands and skill acquisition.</p>
+      <p>For example, a coach might plan a high-intensity running session (RPE target: 8-9) on Tuesday, followed by a tactical/skills session (RPE target: 4-5) on Wednesday. GPS data validates whether the actual intensity matched the plan.</p>
+
+      <h2 style="margin-top:var(--space-10);margin-bottom:var(--space-4);">Planned vs. Actual RPE</h2>
+      <p>There are two approaches to RPE assessment:</p>
+      <div style="background:var(--light-grey);border-radius:var(--radius-lg);padding:var(--space-6);margin:var(--space-6) 0;">
+        <p style="margin-bottom:var(--space-3);"><strong>1. Simple method:</strong> Assign weekly RPE totals across all sessions and competition. Track the trend over time — is total load increasing, stable, or decreasing?</p>
+        <p><strong>2. Comparative method:</strong> Establish a planned RPE <em>before</em> sessions, then compare against actual RPE afterwards. If planned was 7 but actual was 9, the session was harder than intended — investigate why and adjust.</p>
+      </div>
+
+      <img src="https://cdn.shopify.com/s/files/1/0044/9983/2918/files/Screen_Shot_2019-10-15_at_3.17.38_pm_grande.png" alt="RPE tracking comparison chart" style="width:100%;border-radius:var(--radius-lg);margin:var(--space-4) 0 var(--space-6);">
+
+      <h2 style="margin-top:var(--space-10);margin-bottom:var(--space-4);">RPE & Return to Performance</h2>
+      <p>For injured athletes resuming training, RPE is critical. The recommendation is to undertake weekly loads that are fairly <strong>below what you think you're capable of</strong>. Start conservative:</p>
+      <ul style="list-style:disc;padding-left:var(--space-6);margin:var(--space-4) 0;">
+        <li style="margin-bottom:var(--space-2);color:var(--text-light);">Week 1-2: RPE 4-5 sessions, reduced duration (30-40 min)</li>
+        <li style="margin-bottom:var(--space-2);color:var(--text-light);">Week 3-4: RPE 5-6, normal duration, limited high-speed running</li>
+        <li style="margin-bottom:var(--space-2);color:var(--text-light);">Week 5+: Gradual return to full training RPE with GPS monitoring</li>
+      </ul>
+      <p>GPS data is essential here — it gives objective validation that the athlete's perceived effort matches their actual output. An athlete might <em>feel</em> fine (RPE 5) but GPS shows their high-speed running metres are 40% below their pre-injury baseline. That gap is critical information.</p>
+
+      <!-- IN-CONTENT PRODUCT CARD #2 -->
+      <div class="article-product-card">
+        <img src="https://sportsperformancetracking.com/cdn/shop/products/Hero_HR_Vest_CloseUp_large.png" alt="Heart Rate Vest" class="article-product-card__image">
+        <div class="article-product-card__content">
+          <div class="article-product-card__label">Add Heart Rate to Your RPE Data</div>
+          <div class="article-product-card__title">Heart Rate Vest — validate perceived exertion with real HR data</div>
+          <div style="display:flex;align-items:center;gap:var(--space-3);margin-top:var(--space-2);">
+            <span class="article-product-card__price">$199.99</span>
+            <a href="/products/heart-rate-vest" class="btn btn--sm btn--primary">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <h2 style="margin-top:var(--space-10);margin-bottom:var(--space-4);">Key Takeaway</h2>
+      <p>RPE is free, takes 10 seconds, and when combined with GPS tracking data, gives coaches and athletes a complete picture of training load. The combination of subjective (how it felt) and objective (what actually happened) data is the gold standard in modern sports science.</p>
+      <p><strong>Start simple:</strong> Record RPE for every session. After 4 weeks, you'll have enough data to spot patterns, prevent overtraining, and make smarter decisions about when to push and when to rest.</p>
+
+      <!-- Complete Setup Bundle CTA -->
+      <div style="background:var(--spt-near-black);border-radius:var(--radius-xl);padding:var(--space-8);margin-top:var(--space-12);">
+        <h3 style="color:var(--white);margin-bottom:var(--space-2);font-size:var(--text-lg);">The Complete Setup</h3>
+        <p style="color:var(--muted);font-size:var(--text-sm);margin-bottom:var(--space-6);">Everything you need to combine RPE with GPS + heart rate tracking</p>
+        <a href="/products/complete-setup" style="display:flex;align-items:center;gap:var(--space-5);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:var(--space-5);transition:all 0.2s;text-decoration:none;" onmouseover="this.style.borderColor='rgba(255,221,0,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">
+          <div style="display:flex;gap:var(--space-2);">
+            <img src="https://sportsperformancetracking.com/cdn/shop/files/SPTPack_1080x.png" alt="" style="width:50px;height:50px;object-fit:contain;">
+            <img src="https://sportsperformancetracking.com/cdn/shop/products/Hero_HR_Vest_CloseUp_large.png" alt="" style="width:50px;height:50px;object-fit:contain;">
+            <img src="https://sportsperformancetracking.com/cdn/shop/products/Hero_Vest_2048x2048.png" alt="" style="width:50px;height:50px;object-fit:contain;">
+          </div>
+          <div style="flex:1;">
+            <div style="color:var(--white);font-weight:var(--weight-semibold);">SPT-NXT + HR Vest + Spare Vest</div>
+            <div style="display:flex;align-items:center;gap:var(--space-3);margin-top:var(--space-1);">
+              <span style="color:var(--spt-yellow);font-weight:var(--weight-bold);font-size:var(--text-xl);">$549.00</span>
+              <span style="color:var(--muted);text-decoration:line-through;font-size:var(--text-sm);">$624.97</span>
+              <span class="badge badge--yellow">Save $75.97</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Sticky Blog CTA -->
+  <div class="blog-sticky-cta visible">
+    <div class="blog-sticky-cta__info">
+      <strong style="color:var(--white);">SPT-NXT Pack</strong>
+      <span style="color:var(--spt-yellow);">$349.99</span>
+    </div>
+    <a href="/products/spt-nxt-pack" class="btn btn--primary btn--sm">Shop Now</a>
+  </div>
+
+  <footer class="footer"><div class="container"><div class="footer__bottom"><p class="footer__copyright">© 2026 SPT Pty Ltd.</p></div></div></footer>
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cartDrawer"><div class="cart-drawer__header"><h3 class="cart-drawer__title">Your Cart</h3><button class="cart-drawer__close" onclick="toggleCart()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg></button></div><div class="cart-drawer__items" id="cartItems"><div style="text-align:center;padding:var(--space-16) 0;color:var(--muted);">Your cart is empty</div></div><div class="cart-drawer__footer" id="cartFooter" style="display:none;"><div class="cart-drawer__shipping-bar"><div class="cart-drawer__shipping-progress" style="width:0%;"></div></div><p class="cart-drawer__shipping-text"></p><div class="cart-drawer__total"><span>Total</span><span id="cartTotal">$0.00</span></div><a href="#" class="btn btn--primary btn--full btn--lg">Checkout</a></div></div>
+  <script src="/js/navigation.js"></script>
+  <script src="/js/cart-drawer.js"></script>
+</body>
+</html>

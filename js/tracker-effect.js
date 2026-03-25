@@ -23,13 +23,14 @@
   let animFrame;
 
   // Ball physics
-  const BALL_RADIUS = 8;
+  const BALL_RADIUS = 12;
   const BALL_FRICTION = 0.985;
   const BALL_BOUNCE = 0.7;
   const KICK_RADIUS = 30; // how close player needs to be to kick
   const KICK_FORCE = 1.8;
   let ballX, ballY, ballVX = 0, ballVY = 0, ballSpin = 0;
   let ballInitialised = false;
+  let ballKicked = false; // true after first kick — hides "kick me" label
 
   function initBall() {
     ballX = w * (0.3 + Math.random() * 0.4);
@@ -53,6 +54,7 @@
 
       // Kick strength based on player speed
       const kickStrength = Math.max(speed * KICK_FORCE, 3);
+      ballKicked = true;
       ballVX += nx * kickStrength;
       ballVY += ny * kickStrength;
       ballSpin += (nx > 0 ? 1 : -1) * kickStrength * 0.3;
@@ -125,6 +127,38 @@
     ctx.fill();
 
     ctx.restore();
+
+    // "Kick me" label — shown until first kick, with gentle bob
+    if (!ballKicked) {
+      ctx.save();
+      const bob = Math.sin(Date.now() / 400) * 3;
+      const labelX = ballX;
+      const labelY = ballY - BALL_RADIUS - 18 + bob;
+
+      // Arrow pointing down to ball
+      ctx.beginPath();
+      ctx.moveTo(labelX, ballY - BALL_RADIUS - 4);
+      ctx.lineTo(labelX - 4, ballY - BALL_RADIUS - 10);
+      ctx.lineTo(labelX + 4, ballY - BALL_RADIUS - 10);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(255, 221, 0, 0.8)';
+      ctx.fill();
+
+      // Label background
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+      ctx.beginPath();
+      ctx.roundRect(labelX - 28, labelY - 10, 56, 18, 4);
+      ctx.fill();
+
+      // Label text
+      ctx.fillStyle = 'rgba(255, 221, 0, 0.9)';
+      ctx.font = '700 10px Roboto, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('KICK ME', labelX, labelY);
+
+      ctx.restore();
+    }
   }
 
   function resize() {
