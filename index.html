@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPT GPS — The Simplest In-Game GPS Solution</title>
+  <meta name="description" content="GPS performance tracking for teams and athletes. Used by 6,000+ teams worldwide. Track distance, speed, intensity and more. From $349.99 AUD.">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/pages.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>">
+
+  <!-- JSON-LD Organisation -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SPT GPS",
+    "alternateName": "Sports Performance Tracking",
+    "url": "https://sportsperformancetracking.com",
+    "description": "The simplest in-game GPS solution for teams and athletes",
+    "foundingDate": "2018",
+    "numberOfEmployees": "10-50",
+    "sameAs": [
+      "https://www.instagram.com/sptgps",
+      "https://www.facebook.com/sptgps",
+      "https://www.youtube.com/sptgps"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container">
+      🏆 Free shipping on orders over $500 AUD — <strong>Team packs from $280/unit</strong>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="/" class="header__logo">SPT</a>
+
+      <nav class="header__nav">
+        <div class="header__dropdown">
+          <a href="/collections/all" class="header__nav-link">Products ▾</a>
+          <div class="header__dropdown-menu">
+            <a href="/products/spt-nxt-pack" class="header__dropdown-item">
+              SPT-NXT Pack
+              <span class="header__dropdown-item-price">$349.99</span>
+            </a>
+            <a href="/products/charging-dock" class="header__dropdown-item">
+              Charging Dock
+              <span class="header__dropdown-item-price">$799.99</span>
+            </a>
+            <a href="/products/heart-rate-vest" class="header__dropdown-item">
+              Heart Rate Vest
+              <span class="header__dropdown-item-price">$199.99</span>
+            </a>
+            <a href="/products/compression-tank" class="header__dropdown-item">
+              Compression Tank
+              <span class="header__dropdown-item-price">$89.99</span>
+            </a>
+            <a href="/products/vest" class="header__dropdown-item">
+              SPT Vest
+              <span class="header__dropdown-item-price">$74.99</span>
+            </a>
+            <a href="/collections/all" class="header__dropdown-item" style="color: var(--spt-yellow); font-weight: 600;">
+              View All Products →
+            </a>
+          </div>
+        </div>
+        <a href="/pages/teams" class="header__nav-link">Teams</a>
+        <div class="header__dropdown">
+          <a href="#" class="header__nav-link">Sports ▾</a>
+          <div class="header__dropdown-menu">
+            <a href="/pages/australian-football" class="header__dropdown-item">🏈 Australian Football</a>
+            <a href="/pages/soccer" class="header__dropdown-item">⚽ Soccer</a>
+            <a href="/pages/rugby" class="header__dropdown-item">🏉 Rugby</a>
+            <a href="/pages/hockey" class="header__dropdown-item">🏑 Hockey</a>
+            <a href="/pages/lacrosse" class="header__dropdown-item">🥍 Lacrosse</a>
+            <a href="/pages/american-football" class="header__dropdown-item">🏈 American Football</a>
+          </div>
+        </div>
+        <a href="/pages/gametraka" class="header__nav-link">GameTraka</a>
+        <a href="/blog/" class="header__nav-link">Playbook</a>
+        <a href="/pages/k-sport" class="header__nav-link">K-Sport</a>
+      </nav>
+
+      <div class="header__actions">
+        <a href="/collections/all" class="btn btn--primary btn--sm" style="display: none;">Shop Now</a>
+        <button class="header__cart-btn" onclick="toggleCart()" aria-label="Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" /></svg>
+          <span class="header__cart-count" id="cartCount" style="display: none;">0</span>
+        </button>
+        <button class="header__menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/collections/all" class="mobile-menu__link">Products</a>
+    <a href="/pages/teams" class="mobile-menu__link">Teams</a>
+    <a href="/pages/australian-football" class="mobile-menu__link">Australian Football</a>
+    <a href="/pages/soccer" class="mobile-menu__link">Soccer</a>
+    <a href="/pages/rugby" class="mobile-menu__link">Rugby</a>
+    <a href="/pages/hockey" class="mobile-menu__link">Hockey</a>
+    <a href="/pages/lacrosse" class="mobile-menu__link">Lacrosse</a>
+    <a href="/pages/american-football" class="mobile-menu__link">American Football</a>
+    <a href="/pages/gametraka" class="mobile-menu__link">GameTraka</a>
+    <a href="/blog/" class="mobile-menu__link">Playbook</a>
+    <a href="/pages/k-sport" class="mobile-menu__link">K-Sport</a>
+    <a href="/pages/support" class="mobile-menu__link">Support</a>
+    <a href="/pages/contact" class="mobile-menu__link">Contact</a>
+    <div class="mobile-menu__cta">
+      <a href="/collections/all" class="btn btn--primary btn--full btn--lg">Shop Now</a>
+    </div>
+  </div>
+
+  <!-- Hero: Dual Journey -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero__tagline">The Simplest In-Game GPS Solution</p>
+      <h1 class="hero__title">Unlock Your True Potential</h1>
+      <p class="hero__subtitle">Professional-grade GPS tracking for teams and athletes. No subscriptions. No complexity. Just data that wins games.</p>
+
+      <div class="hero__journeys">
+        <!-- Team Journey -->
+        <a href="/pages/teams" class="journey-card">
+          <div class="journey-card__icon">🏟️</div>
+          <h2 class="journey-card__title">Track My Team</h2>
+          <p class="journey-card__desc">GPS tracking for your entire squad. Volume pricing, charging dock, and team analytics — everything a coach needs.</p>
+          <p class="journey-card__price">Team packs from $280/unit</p>
+          <span class="journey-card__cta">
+            Build a Team Pack
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+          </span>
+        </a>
+
+        <!-- Individual Journey -->
+        <a href="/products/spt-nxt-pack" class="journey-card">
+          <div class="journey-card__icon">🏃</div>
+          <h2 class="journey-card__title">Track Myself</h2>
+          <p class="journey-card__desc">Your personal GPS coach. Track distance, speed, sprints and intensity. See exactly how you perform every game.</p>
+          <p class="journey-card__price">From $349.99 AUD</p>
+          <span class="journey-card__cta">
+            Shop SPT-NXT
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Counter -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats__grid">
+        <div class="stat">
+          <div class="stat__number" data-target="6018">0</div>
+          <div class="stat__label">Teams Worldwide</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number" data-target="1668180" data-suffix="">0</div>
+          <div class="stat__label">Sessions Tracked</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number" data-target="104543">0</div>
+          <div class="stat__label">Athletes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- Sport Selector -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Choose Your Sport</h2>
+        <p>Purpose-built tracking for the sports that matter to you</p>
+      </div>
+      <div class="sport-selector__grid">
+        <a href="/pages/australian-football" class="sport-card">
+          <div class="sport-card__icon">🏈</div>
+          <span class="sport-card__name">Australian<br>Football</span>
+        </a>
+        <a href="/pages/soccer" class="sport-card">
+          <div class="sport-card__icon">⚽</div>
+          <span class="sport-card__name">Soccer</span>
+        </a>
+        <a href="/pages/rugby" class="sport-card">
+          <div class="sport-card__icon">🏉</div>
+          <span class="sport-card__name">Rugby</span>
+        </a>
+        <a href="/pages/hockey" class="sport-card">
+          <div class="sport-card__icon">🏑</div>
+          <span class="sport-card__name">Hockey</span>
+        </a>
+        <a href="/pages/lacrosse" class="sport-card">
+          <div class="sport-card__icon">🥍</div>
+          <span class="sport-card__name">Lacrosse</span>
+        </a>
+        <a href="/pages/american-football" class="sport-card">
+          <div class="sport-card__icon">🏈</div>
+          <span class="sport-card__name">American<br>Football</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Product -->
+  <section class="section section--light">
+    <div class="container">
+      <div class="featured-product">
+        <div>
+          <img src="https://sportsperformancetracking.com/cdn/shop/files/SPT-NXT_300x300.png" alt="SPT-NXT Pack — GPS tracking device and vest" class="featured-product__image" loading="lazy">
+        </div>
+        <div class="featured-product__content">
+          <span class="badge badge--yellow">Most Popular</span>
+          <h3 style="margin-top: var(--space-3);">SPT-NXT Pack</h3>
+          <p class="text-muted" style="margin-top: var(--space-2);">Everything you need to track your performance — GPS device, vest, and full access to GameTraka analytics.</p>
+          <div class="featured-product__price">$349.99 <span style="font-size: var(--text-sm); font-weight: normal; color: var(--muted);">AUD</span></div>
+          <ul class="featured-product__features">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>
+              10Hz GPS — pro-level accuracy at 27 grams
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>
+              6-hour battery life — lasts multiple sessions
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>
+              GameTraka included — no subscription fees
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" /></svg>
+              FIFA approved — legal in competition
+            </li>
+          </ul>
+          <div style="display: flex; gap: var(--space-3); flex-wrap: wrap;">
+            <a href="/products/spt-nxt-pack" class="btn btn--primary btn--lg">Add to Cart — $349.99</a>
+            <a href="/pages/teams" class="btn btn--outline">Team pricing →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logo Parade -->
+  <section class="section section--dark" style="padding: var(--space-10) 0;">
+    <div class="container">
+      <p class="text-center text-uppercase text-muted" style="margin-bottom: var(--space-6);">Trusted by 6,000+ teams worldwide</p>
+      <div class="logo-parade">
+        <div class="logo-parade__track">
+          <span class="logo-parade__item">Adelaide Crows</span>
+          <span class="logo-parade__item">Bristol Rovers</span>
+          <span class="logo-parade__item">Casey Demons</span>
+          <span class="logo-parade__item">Sunderland AFC</span>
+          <span class="logo-parade__item">USA Lacrosse</span>
+          <span class="logo-parade__item">Levante U.D.</span>
+          <span class="logo-parade__item">Hajduk Split</span>
+          <span class="logo-parade__item">Derry City</span>
+          <span class="logo-parade__item">Chilean Hockey</span>
+          <span class="logo-parade__item">Australian Pararoos</span>
+          <span class="logo-parade__item">Griquas Rugby</span>
+          <span class="logo-parade__item">Bentleigh Greens</span>
+          <!-- Duplicate for seamless scroll -->
+          <span class="logo-parade__item">Adelaide Crows</span>
+          <span class="logo-parade__item">Bristol Rovers</span>
+          <span class="logo-parade__item">Casey Demons</span>
+          <span class="logo-parade__item">Sunderland AFC</span>
+          <span class="logo-parade__item">USA Lacrosse</span>
+          <span class="logo-parade__item">Levante U.D.</span>
+          <span class="logo-parade__item">Hajduk Split</span>
+          <span class="logo-parade__item">Derry City</span>
+          <span class="logo-parade__item">Chilean Hockey</span>
+          <span class="logo-parade__item">Australian Pararoos</span>
+          <span class="logo-parade__item">Griquas Rugby</span>
+          <span class="logo-parade__item">Bentleigh Greens</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Coaches Are Saying</h2>
+        <p>Real feedback from real teams using SPT every week</p>
+      </div>
+
+      <div class="testimonial-carousel" id="testimonialCarousel">
+        <div class="testimonial-track" id="testimonialTrack">
+          <div class="testimonial-card">
+            <div class="testimonial-card__inner">
+              <div class="stars" style="margin-bottom: var(--space-3);">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <p class="testimonial-card__quote">"SPT has completely changed how we prepare our squad. The data on distance covered, sprints and intensity has been invaluable for our coaching staff."</p>
+              <div class="testimonial-card__author">
+                <div class="testimonial-card__avatar">MK</div>
+                <div>
+                  <div class="testimonial-card__name">Michael Kennedy</div>
+                  <div class="testimonial-card__role">Head Coach, Dromana FC</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-card__inner">
+              <div class="stars" style="margin-bottom: var(--space-3);">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <p class="testimonial-card__quote">"We needed affordable GPS for our entire squad. SPT delivered pro-level data without the enterprise price tag. Our players love seeing their stats after every match."</p>
+              <div class="testimonial-card__author">
+                <div class="testimonial-card__avatar">JS</div>
+                <div>
+                  <div class="testimonial-card__name">James Schmidt</div>
+                  <div class="testimonial-card__role">Performance Analyst, FC Tössfeld</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-card__inner">
+              <div class="stars" style="margin-bottom: var(--space-3);">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <p class="testimonial-card__quote">"The Pararoos have been using SPT to monitor player loads across training and matches. It's given us insights we simply didn't have before."</p>
+              <div class="testimonial-card__author">
+                <div class="testimonial-card__avatar">AP</div>
+                <div>
+                  <div class="testimonial-card__name">Australian Pararoos</div>
+                  <div class="testimonial-card__role">National Team, Football Australia</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-nav">
+          <button class="testimonial-dot active" data-index="0"></button>
+          <button class="testimonial-dot" data-index="1"></button>
+          <button class="testimonial-dot" data-index="2"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="section">
+    <div class="container">
+      <div class="newsletter">
+        <h3>Join 6,000+ Coaches Getting Performance Tips</h3>
+        <p>Weekly insights on GPS tracking, load management, and sports science — straight to your inbox.</p>
+        <form class="newsletter__form" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
+          <input type="email" class="newsletter__input" placeholder="Enter your email" required>
+          <button type="submit" class="btn btn--primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <span class="footer__logo">SPT</span>
+          <p class="footer__tagline">The simplest in-game GPS solution. Professional-grade tracking for teams and athletes worldwide. No subscriptions. No complexity.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Products</h4>
+          <a href="/products/spt-nxt-pack" class="footer__link">SPT-NXT Pack</a>
+          <a href="/products/charging-dock" class="footer__link">Charging Dock</a>
+          <a href="/products/heart-rate-vest" class="footer__link">Heart Rate Vest</a>
+          <a href="/products/compression-tank" class="footer__link">Compression Tank</a>
+          <a href="/products/vest" class="footer__link">SPT Vest</a>
+          <a href="/products/gift-cards" class="footer__link">Gift Cards</a>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Sports</h4>
+          <a href="/pages/australian-football" class="footer__link">Australian Football</a>
+          <a href="/pages/soccer" class="footer__link">Soccer</a>
+          <a href="/pages/rugby" class="footer__link">Rugby</a>
+          <a href="/pages/hockey" class="footer__link">Hockey</a>
+          <a href="/pages/lacrosse" class="footer__link">Lacrosse</a>
+          <a href="/pages/american-football" class="footer__link">American Football</a>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Company</h4>
+          <a href="/pages/about" class="footer__link">About SPT</a>
+          <a href="/pages/k-sport" class="footer__link">K-Sport Partnership</a>
+          <a href="/pages/gametraka" class="footer__link">GameTraka</a>
+          <a href="/pages/teams" class="footer__link">Team Pricing</a>
+          <a href="/pages/support" class="footer__link">Support</a>
+          <a href="/pages/contact" class="footer__link">Contact</a>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2026 SPT Pty Ltd. All rights reserved. Australian owned and operated.</p>
+        <div class="footer__legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Shipping & Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer__header">
+      <h3 class="cart-drawer__title">Your Cart</h3>
+      <button class="cart-drawer__close" onclick="toggleCart()">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
+      </button>
+    </div>
+    <div class="cart-drawer__items" id="cartItems">
+      <div style="text-align: center; padding: var(--space-16) 0; color: var(--muted);">
+        <p style="font-size: var(--text-lg); margin-bottom: var(--space-3);">Your cart is empty</p>
+        <a href="/collections/all" class="btn btn--primary">Start Shopping</a>
+      </div>
+    </div>
+    <div class="cart-drawer__footer" id="cartFooter" style="display: none;">
+      <div class="cart-drawer__shipping-bar">
+        <div class="cart-drawer__shipping-progress" style="width: 70%;"></div>
+      </div>
+      <p class="cart-drawer__shipping-text">Spend <strong>$150.01 more</strong> for free shipping</p>
+      <div class="cart-drawer__total">
+        <span>Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <a href="#" class="btn btn--primary btn--full btn--lg">Checkout</a>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/navigation.js"></script>
+  <script src="/js/stats-counter.js"></script>
+  <script src="/js/testimonials.js"></script>
+  <script src="/js/cart-drawer.js"></script>
+
+</body>
+</html>
